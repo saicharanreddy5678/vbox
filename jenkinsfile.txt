@@ -1,0 +1,31 @@
+pipeline {
+   agent any
+    environment {
+        tf = 'terraform'
+    }
+    stages {
+        stage('Terraform Init') {
+            steps {
+                sh 'tf init'
+            }
+        }
+        stage('Terraform Plan') {
+            steps {
+                sh 'tf plan'
+            }
+        }
+        stage('Terraform Apply') {
+            steps {
+                sh 'tf apply -auto-approve'
+            }
+        }
+    }
+    post {
+        success {
+            slackSend(color: 'good', message: "Build succeeded: ${env.JOB_NAME} #${env.BUILD_NUMBER}")
+        }
+        failure {
+            slackSend(color: 'danger', message: "Build failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}")
+        }
+    }
+}
