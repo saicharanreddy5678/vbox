@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh 'tf init'
+                sh '$tf init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                sh 'tf plan'
+                sh '$tf plan'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'tf apply -auto-approve'
+                sh '$tf apply -auto-approve'
             }
         }
     }
