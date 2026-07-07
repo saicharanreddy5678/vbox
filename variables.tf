@@ -1,6 +1,6 @@
 variable "nameoffile" {
  type = string
- default = jinnn
+ default = jinnn.txt
 }
 variable "auraa" {
  type = string
