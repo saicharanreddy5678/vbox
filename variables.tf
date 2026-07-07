@@ -1,8 +1,8 @@
 variable "nameoffile" {
  type = string
- default = jinnn.txt
+ default = "jinnn.txt"
 }
 variable "auraa" {
  type = string
-default = aura of jinng
+default = "aura of jinng"
 }               
