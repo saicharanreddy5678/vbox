@@ -1,0 +1,6 @@
+variable "nameoffile" {
+
+}
+variable "auraa" {
+
+}               
